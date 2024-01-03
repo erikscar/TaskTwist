@@ -1,0 +1,176 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.teste {
+  background-color: #d5e6ee;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  padding: 0 5rem;
+}
+
+.allContainer {
+  background-color: #fff;
+  border-radius: .75rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem;
+}
+
+.logo > h1{
+  font-size: 4rem;
+  background: linear-gradient(to bottom, #4dccfa, #000ece);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo > img {
+  width: 5rem;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 4rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+}
+
+.container > img {  
+  padding: 2rem;
+    width: 50rem;
+    object-fit: contain;
+}
+
+.main-container {
+  padding: 4rem;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.main-title {
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.slogan {
+  color: #929292;
+  font-size: 1.2rem;
+}
+
+.function-paragraph {
+  margin-top: 2rem;
+  font-size: 1.3rem;
+}
+
+.function-paragraph > p {
+  margin-bottom: 1.3rem;
+}
+
+.is-bold {
+  font-weight: 600;
+}
+
+.start-btn {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  border-radius: .5rem;
+  border: 0;
+  color: #fff;
+  background: linear-gradient(to bottom, #4dccfa, #000ece);
+  padding: .5em 1em ;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+@media (max-width: 1700px) {
+  .title-container {
+    flex-direction: column;
+  }  
+}
+
+@media (max-width: 1300px) {
+  .container > img {  
+    width: 35rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .logo > h1{
+    font-size: 2rem;
+  }
+  
+  .logo > img {
+    width: 3rem;
+  }
+  .container {  
+    flex-direction: column;
+  }
+
+  .container > img {
+    margin: 0 auto;
+  }
+
+  .function-paragraph {
+    margin: 2rem auto;
+    width: 30rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .allContainer {
+    text-align: center;
+  }
+  .function-paragraph {
+    margin: 2rem auto;
+    font-size: .8rem;
+    width: auto;
+  }
+  .navbar {
+    padding: 0rem;
+  }
+}
+
+@media (max-width: 470px) {
+  .main-container {
+    padding: 2rem;
+  }
+  .navbar {
+    padding: 1rem;
+    font-size: .9rem;
+  }
+  .container > img {
+    width: 20rem;
+  }
+}
+
+/* https://cdn.dribbble.com/users/7417866/screenshots/16809414/media/d6ce3801d240690d8f056cd6d8c8a5ad.png
+https://img.freepik.com/vetores-premium/modelo-de-site-da-web-do-vetor-curso-de-aprendizagem-de-design-educacao-on-line-e-escola-pagina-de-destino-para-desenvolvimento-de-websites-e-dispositivos-moveis_88813-18.jpg */
