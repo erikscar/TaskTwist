@@ -5,6 +5,13 @@
   font-family: 'Poppins', sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  color: rgb(185, 183, 183);
+}
 
 .teste {
   background-color: #d5e6ee;
@@ -101,6 +108,7 @@
   color: #fff;
   background: linear-gradient(to bottom, #4dccfa, #000ece);
   padding: .5em 1em ;
+  cursor: pointer;
 }
 
 .text-align-center {
@@ -172,5 +180,3 @@
   }
 }
 
-/* https://cdn.dribbble.com/users/7417866/screenshots/16809414/media/d6ce3801d240690d8f056cd6d8c8a5ad.png
-https://img.freepik.com/vetores-premium/modelo-de-site-da-web-do-vetor-curso-de-aprendizagem-de-design-educacao-on-line-e-escola-pagina-de-destino-para-desenvolvimento-de-websites-e-dispositivos-moveis_88813-18.jpg */
