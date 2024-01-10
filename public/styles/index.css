@@ -66,7 +66,8 @@ header {
 }
 
 .homepageImg {
-  padding: 2rem;
+  padding: 2rem; 
+  /* ver qual padding colocar melhor tem dois */
   width: 50rem;
   object-fit: contain;
   padding: 4rem;
@@ -78,6 +79,7 @@ header {
 
 .title-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 2rem;
 }
@@ -111,7 +113,6 @@ header {
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
-
 .text-align-center {
   text-align: center;
 }
@@ -120,60 +121,86 @@ header {
   font-weight: 600;
 }
 
-@media (max-width: 1700px) {
+@media only screen and (max-width:1440px) {
+  body {
+    padding: 0
+  }
+  header {
+    flex-direction: column;
+  }
+  .logo {
+    justify-content: center; 
+    /* ver se da para colocar na pagina mesmo não em media */
+  }
+  .logo-image {
+    width: 3rem;
+  }
+  .logo-title {
+    font-size: 2.5rem;
+  }
+  .navbar {
+    margin-top: 1rem;
+    font-size: 1rem;
+    justify-content: center;
+  }
+  .home-container {
+    flex-direction: column;
+    /* tentar colocar como background a imagem  */
+  }
+  .homepageImg{
+    width: 100%;
+    padding: 1rem;
+    /* ver se colocando em uma div da pra colocar esse tamano na pagina real */
+  }
   .title-container {
     flex-direction: column;
   }
-}
-@media (max-width: 1300px) {
-  .container > img {
-    width: 35rem;
-  }
-}
-@media (max-width: 1000px) {
-  .logo > h1 {
-    font-size: 2rem;
-  }
-  .logo > img {
-    width: 3rem;
-  }
-  .container {
-    flex-direction: column;
-  }
-  .container > img {
-    margin: 0 auto;
-  }
   .function-paragraph {
-    margin: 2rem auto;
-    width: 30rem;
-  }
-}
-@media (max-width: 650px) {
-  .header {
-    flex-direction: column;
-    align-items: center;
-  }
-  .allContainer {
     text-align: center;
   }
-  .function-paragraph {
-    margin: 2rem auto;
-    font-size: 0.8rem;
-    width: auto;
+
+}
+@media only screen and (min-width: 450px ) and (max-width: 1000px) {
+  .logo-image {
+    width: 4rem;
   }
-  .navbar {
-    padding: 0rem;
+  .logo-title {
+    font-size: 4rem;
+  }
+  .navbar{
+    font-size: 1.4rem;
   }
 }
-@media (max-width: 470px) {
-  .main-container {
-    padding: 2rem;
+@media only screen and (min-width: 1000px) {
+  header {
+    gap: 2rem;
+  }
+  .logo-title {
+    font-size: 4rem;
+  }
+  .logo-image {
+    width: 6rem;
   }
   .navbar {
-    padding: 1rem;
-    font-size: 0.9rem;
+    font-size: 2rem;
   }
-  .container > img {
-    width: 20rem;
+  .homepageImg {
+    margin: 0 auto;
+    width: 60%;
   }
+}
+@media only screen and (min-width: 1440px) {
+  .header{
+    flex-direction: row;
+  }
+  .logo-image {
+    width: 6rem;
+  }
+  .logo-title {
+    font-size: 4rem;
+  }
+  .home-container {
+    flex-direction: row;
+  }
+
 }

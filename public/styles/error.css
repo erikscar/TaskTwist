@@ -66,7 +66,8 @@ a:hover {
 }
 
 .error-image {
-  width: 45rem;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .start-btn {
@@ -79,4 +80,28 @@ a:hover {
     cursor: pointer;
     font-size: 1.5rem;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 450px) {
+  .main-container {
+    flex-direction: column;
+  }
+  .main-title {
+    font-size: 5rem;
+  }
+}
+@media only screen and (min-width: 451px) and (max-width: 650px) {
+  .main-title {
+    font-size: 8rem;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 1050px) {
+  .main-container {
+    flex-direction: column;
+  }
+}
+@media only screen and (min-width: 1700px) {
+  .error-image {
+    width: 55rem;
+  }
 }

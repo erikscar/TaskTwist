@@ -2,12 +2,13 @@
 
   <body>
     <div class="main-container">
-      <div class="main-content">
-
+      <div class="main-content-wrapper">
+        
         <aside>
           <div class="overview-container">
+
             <div class="checklist-name-wrapper">
-              <img src="/imgs/commom/TaskTwistLogo.png" alt="taskTwitst-logo">
+              <img src="/imgs/commom/TaskTwistLogo.png" alt="taskTwitst-logo" class="checklist-image">
               <div>
                 <h1>
                   <%= checkList.name %>
@@ -16,34 +17,35 @@
               </div>
             </div>
             <p class="overview-title">OVERVIEW</p>
-            <div class="overview-wrapper">
+
+            <div class="overview-task-wrapper">
 
               <% const tasksToDo=checkList.tasks.filter(task=> task.done === "to-do"); %>
                 <% const totalTasksToDo=tasksToDo.reduce((acum, task)=> acum + 1, 0); %>
-                  <span><i class="bi bi-hammer"></i>
+                  <span class="tasks-counter"><i class="bi bi-hammer"></i>
                     <%= totalTasksToDo %> TO-DO Tasks
                   </span>
 
                   <% const tasksInProgress=checkList.tasks.filter(task=> task.done === "inProgress"); %>
                     <% const totalTasksInProgress=tasksInProgress.reduce((acum, task)=> acum + 1, 0); %>
-                      <span><i class="bi bi-arrow-clockwise"></i>
+                      <span class="tasks-counter"><i class="bi bi-arrow-clockwise"></i>
                         <%= totalTasksInProgress %> In Progress Tasks
                       </span>
 
                       <% const tasksCompleted=checkList.tasks.filter(task=> task.done === "completed"); %>
                         <% const totalTasksCompleted=tasksCompleted.reduce((acum, task)=> acum + 1, 0); %>
-                          <span><i class="bi bi-check-square"></i>
+                          <span class="tasks-counter"><i class="bi bi-check-square"></i>
                             <%= totalTasksCompleted %> Completed Tasks
                           </span>
             </div>
           </div>
 
-          <div class="current-tasks-container">
-            <p class="current-tasks-title">Current Uncompleted Tasks
+          <div class="uncompleted-tasks-container">
+            <p class="uncompleted-tasks-title">Current Uncompleted Tasks
               <a href="/checklists/<%= checkList.id %>/newTask"><i class="bi bi-plus-lg"></i></a>
             </p>
             <% checkList.tasks.filter(task=> task.done === "to-do" || task.done === "inProgress").forEach(task => { %>
-              <div class="checkbox-wrapper">
+              <div class="uncompleted-tasks-name">
                 <p>
                   <%= task.name %>
                 </p>
@@ -61,17 +63,19 @@
         </aside>
 
         <main>
-          <div class="header">
-            <div class="logo">
-              <img src="/imgs/commom/TaskTwistLogo.png" alt="taskTwitst-logo">
-              <h1>TaskTwist</h1>
-            </div>
-            <nav class="navbar is-bold">
-              <a href="/checklists">HOME PAGE</a>
-              <a href="">ABOUT ME</a>
-            </nav>
-
+          <header>
+          <div class="logo">
+            <img src="/imgs/commom/TaskTwistLogo.png" alt="taskTwist-logo" class="logo-image">
+            <h1 class="logo-title">TaskTwist</h1>
           </div>
+  
+          <nav class="navbar is-bold">
+            <a href="/">HOME PAGE</a>
+            <a href="/checklists">SHOW CHECKLISTS</a>
+            <a href="">ABOUT ME</a>
+          </nav>
+        </header>
+  
           <div class="main-wrapper">
             <div>
               <p class="main-title">
@@ -187,7 +191,7 @@
           </div>
       </div>
     </div>
-    </div>
+  </div>
     </div>
     </main>
 
