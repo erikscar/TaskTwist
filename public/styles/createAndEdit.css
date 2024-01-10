@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #d5e6ee;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  padding: 0 5rem;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  color: #b9b7b7;
+}
+
+label {
+  font-size: 1.4rem;
+}
+
+.main-container{
+  position: relative;
+  min-width: 92vw;
+  min-height: 85vh;
+  border-radius: 1rem;
+  padding: 3rem;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.main-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;    
+  background-image: url("../imgs/commom/homepageImg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 1rem;
+  filter: blur(10px);
+  z-index: -1;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-title{
+  font-size: 3rem;
+  background: linear-gradient(to bottom, #4dccfa, #000ece);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo-image {
+  width: 6rem;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.main-title {
+  font-size: 3rem;
+  margin: 3rem 0;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#checklist-name,
+#checklist-image,
+#task-name,
+#task-image { 
+  width: 90%;    
+  padding: .5rem;
+  border-radius: .5rem;
+  border: 1px solid #d5e6ee;
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.function-btns-wrapper {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.save-btn,
+.cancel-btn {
+  border: 0;
+  padding: 0.5em 2em;
+  background-color: #52e37b;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+}
+
+.save-btn {
+  background-color: #52e37b;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  color: #b9b7b7;
+}
+
+.cancel-btn {
+  background-color: #f64348;
+}
+
+.is-bold {
+  font-weight: 600;
+}

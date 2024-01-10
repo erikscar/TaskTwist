@@ -1,0 +1,55 @@
+<%- include('./layouts/header', {title: 'TaskTwist | CheckLists' , style: '/styles/checklist.css' }) %>
+
+  <body>
+    <div class="main-container">
+
+      <header>
+        <div class="logo">
+          <img src="/imgs/commom/TaskTwistLogo.png" alt="taskTwist-logo" class="logo-image">
+          <h1 class="logo-title">TaskTwist</h1>
+        </div>
+
+        <nav class="navbar is-bold">
+          <a href="/">HOME PAGE</a>
+          <a href="/checklists">SHOW CHECKLISTS</a>
+          <a href="">ABOUT ME</a>
+        </nav>
+      </header>
+
+      <div class="subtitle-wrapper">
+        <p class="main-title">CURRENT CHECKLISTS</p>
+        <a href="/checklists/create" class="new-checklist-btn">
+          New CheckList <i class="bi bi-plus-lg"></i>
+        </a>
+      </div>
+
+      <main class="checklist-container">
+        <% checkLists.forEach(checkList=> { %>
+          <div class="checklist-card">
+
+            <div>
+              <h3 class="checklist-title">
+                <%= checkList.name %>
+              </h3>
+              <div class="checklist-image-wrapper">
+                <a href="/checklists/<%= checkList.id %>">
+                  <img src="<%= checkList.image ? checkList.image : '/imgs/commom/homepageImg.png' %>"
+                    class="checklist-image" alt="checklist-img">
+                </a>
+              </div>
+              <p class="tasks-counter">Total Tasks Added: <%= checkList.tasks.length %>
+              </p>
+            </div>
+
+            <div class="btn-wrapper">
+              <a href="/checklists/<%= checkList.id %>">VIEW</a>
+              <a href="/checklists/<%= checkList.id %>/edit">EDIT</a>
+              <a href="/checklists/<%= checkList.id %>?_method=delete">REMOVE</a>
+            </div>
+          </div>
+          <% }) %>
+      </main>
+    </div>
+  </body>
+
+  </html>

@@ -1,0 +1,196 @@
+<%- include('./layouts/header', {title: 'TaskTwist | Tasks' , style: '/styles/task.css' }) %>
+
+  <body>
+    <div class="main-container">
+      <div class="main-content">
+
+        <aside>
+          <div class="overview-container">
+            <div class="checklist-name-wrapper">
+              <img src="/imgs/commom/TaskTwistLogo.png" alt="taskTwitst-logo">
+              <div>
+                <h1>
+                  <%= checkList.name %>
+                </h1>
+                <p>Workspace</p>
+              </div>
+            </div>
+            <p class="overview-title">OVERVIEW</p>
+            <div class="overview-wrapper">
+
+              <% const tasksToDo=checkList.tasks.filter(task=> task.done === "to-do"); %>
+                <% const totalTasksToDo=tasksToDo.reduce((acum, task)=> acum + 1, 0); %>
+                  <span><i class="bi bi-hammer"></i>
+                    <%= totalTasksToDo %> TO-DO Tasks
+                  </span>
+
+                  <% const tasksInProgress=checkList.tasks.filter(task=> task.done === "inProgress"); %>
+                    <% const totalTasksInProgress=tasksInProgress.reduce((acum, task)=> acum + 1, 0); %>
+                      <span><i class="bi bi-arrow-clockwise"></i>
+                        <%= totalTasksInProgress %> In Progress Tasks
+                      </span>
+
+                      <% const tasksCompleted=checkList.tasks.filter(task=> task.done === "completed"); %>
+                        <% const totalTasksCompleted=tasksCompleted.reduce((acum, task)=> acum + 1, 0); %>
+                          <span><i class="bi bi-check-square"></i>
+                            <%= totalTasksCompleted %> Completed Tasks
+                          </span>
+            </div>
+          </div>
+
+          <div class="current-tasks-container">
+            <p class="current-tasks-title">Current Uncompleted Tasks
+              <a href="/checklists/<%= checkList.id %>/newTask"><i class="bi bi-plus-lg"></i></a>
+            </p>
+            <% checkList.tasks.filter(task=> task.done === "to-do" || task.done === "inProgress").forEach(task => { %>
+              <div class="checkbox-wrapper">
+                <p>
+                  <%= task.name %>
+                </p>
+              </div>
+              <% }) %>
+          </div>
+          <div class="profile">
+            <img src="/imgs/tasks/ProfileImg (2).jpeg" class="profile-img">
+            <div>
+              <p>Erik Scarcela Araujo</p>
+              <p class="profile-function">Full Stack Developer</p>
+            </div>
+          </div>
+
+        </aside>
+
+        <main>
+          <div class="header">
+            <div class="logo">
+              <img src="/imgs/commom/TaskTwistLogo.png" alt="taskTwitst-logo">
+              <h1>TaskTwist</h1>
+            </div>
+            <nav class="navbar is-bold">
+              <a href="/checklists">HOME PAGE</a>
+              <a href="">ABOUT ME</a>
+            </nav>
+
+          </div>
+          <div class="main-wrapper">
+            <div>
+              <p class="main-title">
+                <%= checkList.name %>
+              </p>
+              <p class="main-description">Transform your day by organizing your tasks with simplicity</p>
+            </div>
+            <a href="/checklists/<%= checkList.id %>/newTask">Create New Task <i class="bi bi-plus-lg"></i></a>
+          </div>
+
+          <div class="status-btn-wrapper">
+            <div class="all-tasks">
+              <button class="status-btn-1">To Do</button>
+              <% checkList.tasks.filter(task=> task.done === 'to-do').forEach(task=> { %>
+                <div class="task-card">
+                  <img src="<%= task.image ? task.image : '/imgs/commom/homepageImg.png' %>" alt="">
+                  <p>
+                    <%= task.name %>
+                  </p>
+                  <p>
+                    Created At : <%= task.createdAt.toLocaleDateString() %>
+                  </p>
+                  <div class="icons-wrapper">
+                    <form method="POST" action="/checklists/<%= checkList.id %>/tasks/<%= task._id %>/toDo">
+                      <p class="btn-description">To-Do</p>
+                      <button class="action-btn" type="submit"><i class="bi bi-hammer"></i></button>
+                    </form>
+                    <form method="POST" action="/checklists/<%= checkList.id %>/tasks/<%= task._id %>/inProgress">
+                      <p class="btn-description">inProgress</p>
+                      <button class="action-btn" type="submit"><i class="bi bi-arrow-clockwise"></i></button>
+                    </form>
+                    <form method="POST" action="/checklists/<%= checkList.id %>/tasks/<%= task._id %>/completed">
+                      <p class="btn-description">Completed</p>
+                      <button class="action-btn" type="submit"><i class="bi bi-check-square"></i></button>
+                    </form>
+                    <div>
+                      <p class="btn-description">Remove</p>
+                      <a href="/tasks/<%= task._id %>?_method=delete" class="action-btn"><i
+                          class="bi bi-trash-fill"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <% }) %>
+            </div>
+
+            <div class="all-tasks">
+              <button class="status-btn-2">In Progress</button>
+              <% checkList.tasks.filter(task=> task.done === 'inProgress').forEach(task=> { %>
+                <div class="task-card">
+                  <img src="<%= task.image ? task.image : '/imgs/commom/homepageImg.png' %>" alt="">
+                  <p>
+                    <%= task.name %>
+                  </p>
+                  <p>
+                    Created At : <%= task.createdAt.toLocaleDateString() %>
+                  </p>
+                  <div class="icons-wrapper">
+                    <form method="POST" action="/checklists/<%= checkList.id %>/tasks/<%= task._id %>/toDo">
+                      <p class="btn-description">To-Do</p>
+                      <button class="action-btn" type="submit"><i class="bi bi-hammer"></i></button>
+                    </form>
+                    <form method="POST" action="/checklists/<%= checkList.id %>/tasks/<%= task._id %>/inProgress">
+                      <p class="btn-description">inProgress</p>
+                      <button class="action-btn" type="submit"><i class="bi bi-arrow-clockwise"></i></button>
+                    </form>
+                    <form method="POST" action="/checklists/<%= checkList.id %>/tasks/<%= task._id %>/completed">
+                      <p class="btn-description">Completed</p>
+                      <button class="action-btn" type="submit"><i class="bi bi-check-square"></i></button>
+                    </form>
+                    <div>
+                      <p class="btn-description">Remove</p>
+                      <a href="/tasks/<%= task._id %>?_method=delete" class="action-btn"><i
+                          class="bi bi-trash-fill"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <% }) %>
+            </div>
+
+            <div class="all-tasks">
+              <button class="status-btn-3">Completed</button>
+              <% checkList.tasks.filter(task=> task.done === 'completed').forEach(task=> { %>
+                <div class="task-card">
+                  <img src="<%= task.image ? task.image : '/imgs/commom/homepageImg.png' %>" alt="">
+                  <p>
+                    <%= task.name %>
+                  </p>
+                  <p>
+                    Created At : <%= task.createdAt.toLocaleDateString() %>
+                  </p>
+                  <div class="icons-wrapper">
+                    <form method="POST" action="/checklists/<%= checkList.id %>/tasks/<%= task._id %>/toDo">
+                      <p class="btn-description">To-Do</p>
+                      <button class="action-btn" type="submit"><i class="bi bi-hammer"></i></button>
+                    </form>
+                    <form method="POST" action="/checklists/<%= checkList.id %>/tasks/<%= task._id %>/inProgress">
+                      <p class="btn-description">inProgress</p>
+                      <button class="action-btn" type="submit"><i class="bi bi-arrow-clockwise"></i></button>
+                    </form>
+                    <form method="POST" action="/checklists/<%= checkList.id %>/tasks/<%= task._id %>/completed">
+                      <p class="btn-description">Completed</p>
+                      <button class="action-btn" type="submit"><i class="bi bi-check-square"></i></button>
+                    </form>
+                    <div>
+                      <p class="btn-description">Remove</p>
+                      <a href="/tasks/<%= task._id %>?_method=delete" class="action-btn"><i
+                          class="bi bi-trash-fill"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <% }) %>
+            </div>
+          </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </main>
+
+  </body>
+
+  </html>

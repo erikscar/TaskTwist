@@ -1,0 +1,38 @@
+<%- include('./layouts/header', {title: 'TaskTwist | Create' , style: '/styles/createAndEdit.css' }) %>
+
+  <body>
+    <form method='POST' action="/checklists/<%= checkListId %>/task" class="main-container">
+
+      <header>
+        <div class="logo">
+          <img src="/imgs/commom/TaskTwistLogo.png" alt="taskTwist-logo" class="logo-image">
+          <h1 class="logo-title">TaskTwist</h1>
+        </div>
+
+        <nav class="navbar is-bold">
+          <a href="/">HOME PAGE</a>
+          <a href="/checklists">SHOW CHECKLISTS</a>
+          <a href="">ABOUT ME</a>
+        </nav>
+      </header>
+
+      <p class="main-title">New Task</p>
+
+      <div class="input-wrapper">
+        <label for="taskName">Name: </label>
+        <input type="text" name="task[name]" value="<%= task.name %>" id="task-name" placeholder="Task Name" required>
+      </div>
+
+      <div class="input-wrapper">
+        <label for="taskImage">Image: </label>
+        <input type="text" name="task[image]" value="<%= task.image %>" id='task-image' placeholder="Image Url">
+      </div>
+
+      <div class="function-btns-wrapper">
+        <button type="submit" class="save-btn">SAVE</button>
+        <a href="/checklists/<%= checkListId %>" class="cancel-btn">CANCEL</a>
+      </div>
+    </form>
+  </body>
+
+  </html>
