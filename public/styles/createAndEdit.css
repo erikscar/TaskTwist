@@ -128,20 +128,23 @@ header {
 .save-btn {
   background-color: #52e37b;
   cursor: pointer;
+  transition: .5s;
 }
 
-.save-btn:hover {
+.save-btn:hover,
+.cancel-btn:hover  {
   color: #b9b7b7;
+  transform: scale(1.1);
 }
 
 .cancel-btn {
   background-color: #f64348;
-}
+  transition: .5s;
+} 
 
 .is-bold {
   font-weight: 600;
 }
-
 
 @media only screen and (min-width: 320px) and (max-width: 768px) {
   header {
