@@ -26,7 +26,7 @@ a:hover {
   background-color: #fff;
   border-radius: 1rem;
   min-width: 85vw;
-  min-height: 85vh;
+  min-height: 92vh;
   border-radius: 1rem;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
@@ -66,9 +66,7 @@ header {
 }
 
 .homepageImg {
-  padding: 2rem; 
-  /* ver qual padding colocar melhor tem dois */
-  width: 50rem;
+  width: 45rem;
   object-fit: contain;
   padding: 4rem;
 }
@@ -130,7 +128,6 @@ header {
   }
   .logo {
     justify-content: center; 
-    /* ver se da para colocar na pagina mesmo não em media */
   }
   .logo-image {
     width: 3rem;
@@ -145,12 +142,10 @@ header {
   }
   .home-container {
     flex-direction: column;
-    /* tentar colocar como background a imagem  */
   }
   .homepageImg{
     width: 100%;
     padding: 1rem;
-    /* ver se colocando em uma div da pra colocar esse tamano na pagina real */
   }
   .title-container {
     flex-direction: column;

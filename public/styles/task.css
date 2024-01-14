@@ -204,6 +204,7 @@ header {
   justify-content: center;
   align-items: center;
   gap: 3rem;
+  flex-wrap: wrap;
 }
 
 .tasks-list {
@@ -406,4 +407,9 @@ header {
     margin: 0;
   }
 
+}
+@media only screen and (min-width: 1201px) and (max-width: 1500px) {
+  .main-container {
+    width: 100vw;
+  }
 }

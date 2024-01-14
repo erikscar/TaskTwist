@@ -115,7 +115,7 @@ header {
 }
 
 .checklist-card {
-  margin-top: 2rem; /*ver se da para tirar o gap do container por causa disso olhar o media tbm */
+  margin-top: 2rem;
   background-color: #f3f3f3;
   border-radius: .5rem;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
