@@ -5,6 +5,7 @@ const deleteRouter = express.Router()
 const CheckListModel = require('../models/checklist')
 const TaskModel = require('../models/task')
 
+//Create new Task Page
 router.get('/:id/newTask', async (req, res) => {
   try {
     let task = TaskModel()
@@ -14,6 +15,7 @@ router.get('/:id/newTask', async (req, res) => {
   }
 })
 
+//Save Task
 router.post('/:id/task', async (req, res) => {
   let { name, image } = req.body.task
   let task = new TaskModel({ name, image, checkList: req.params.id })
@@ -27,7 +29,7 @@ router.post('/:id/task', async (req, res) => {
     res.status(404).render('newTask', { task: { ...task }, checkListId: req.params.id })
   }
 })
-
+//Mark the task as "To do"
 router.post('/:checkListId/tasks/:taskId/toDo', async (req, res) => {
   try {
     await TaskModel.findByIdAndUpdate(req.params.taskId, { done: 'to-do' }, { new: true });
@@ -37,6 +39,7 @@ router.post('/:checkListId/tasks/:taskId/toDo', async (req, res) => {
   }
 });
 
+//Mark the task as "In Progress"
 router.post('/:checkListId/tasks/:taskId/inProgress', async (req, res) => {
   try {
     await TaskModel.findByIdAndUpdate(req.params.taskId, { done: 'inProgress' }, { new: true });
@@ -46,6 +49,7 @@ router.post('/:checkListId/tasks/:taskId/inProgress', async (req, res) => {
   }
 });
 
+//Mark the task as "Done"
 router.post('/:checkListId/tasks/:taskId/completed', async (req, res) => {
   try {
     await TaskModel.findByIdAndUpdate(req.params.taskId, { done: 'completed' }, { new: true });
@@ -55,6 +59,7 @@ router.post('/:checkListId/tasks/:taskId/completed', async (req, res) => {
   }
 });
 
+//Delete Task
 deleteRouter.delete("/:id", async (req, res) => {
   try {
     let task = await TaskModel.findByIdAndDelete(req.params.id)

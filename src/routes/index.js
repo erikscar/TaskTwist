@@ -1,7 +1,8 @@
 const express = require('express')
-const router =  express.Router()
+const router = express.Router()
 
-router.get('/', async(req, res) => {
+// Main Page route
+router.get('/', async (req, res) => {
     res.render('index')
 })
 
